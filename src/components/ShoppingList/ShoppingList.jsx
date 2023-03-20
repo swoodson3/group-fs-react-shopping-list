@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
 function ShoppingList() {
     const [itemName, setItemName] = useState('');
     const [itemQuantity, setItemQuantity] = useState('');
@@ -14,6 +15,18 @@ function ShoppingList() {
             alert('Something went wrong');
         });
     }
+    const  deleteList = () => {
+        console.log(`Clearing shopping list`);
+        axios.delete(`/list/deleteList`)
+        .then((response) => {
+            console.log(response);
+            fetchItemList()
+        }).catch((error) => {
+                console.log(error)
+            alert('Something went wrong')
+        });
+    }
+
 
     useEffect(() => {
         // At this point, React is ready!
@@ -35,6 +48,9 @@ function ShoppingList() {
             alert('Something went wrong.');
         })
     }
+
+    
+
     return (
         <div>
             <form onSubmit={submitForm}>
@@ -49,7 +65,8 @@ function ShoppingList() {
                 <input type="submit" />
             </form>
             <button>Reset</button>
-            <button>Clear</button>
+            {/* Do Not USE () */}
+            <button onClick ={deleteList}>Clear</button> 
             <ul> 
                 {
                     listOfItems.map((item) => (
@@ -62,13 +79,6 @@ function ShoppingList() {
         </div>
     )
 }
-
-
-
-
-
-
-
 
 
 export default ShoppingList;
