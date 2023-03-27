@@ -4,7 +4,7 @@
 CREATE TABLE "shoppingList" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR(80) NOT NULL,
-	"quantity" NUMERIC NOT NULL
+	"quantity" NUMERIC NOT NULL,
 	);
 
 INSERT INTO "shoppingList" ("name", "quantity")

@@ -8,6 +8,7 @@ function ShoppingList() {
     const [itemName, setItemName] = useState('');
     const [itemQuantity, setItemQuantity] = useState('');
     const [listOfItems, setListOfItems] = useState([]);
+    
 
     const fetchItemList = () => {
         axios.get('/list').then((response) => {
