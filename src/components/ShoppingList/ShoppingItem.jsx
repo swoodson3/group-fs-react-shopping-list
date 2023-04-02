@@ -51,8 +51,17 @@ function ShoppingItem({ item, fetchItemList }) {
                         Quantity: {item.quantity}
                     </Typography>
                 </CardContent>
-                <button onClick={(e) => markItem(e)}>BUY</button>
-                <button onClick={(e) => removeItem(e)}>Delete</button>
+                    <CardActions>
+                        <Button 
+                            variant="outlined"
+                            onClick={(e) => markItem(e)}>
+                                BUY</Button>
+                        <span />
+                        <Button 
+                        variant="outlined"
+                        onClick={(e) => removeItem(e)}>
+                            Delete</Button>
+                    </CardActions>
             </Card>
         </Grid>
     )
