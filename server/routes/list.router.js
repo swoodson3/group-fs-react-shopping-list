@@ -4,7 +4,7 @@ const pool = require('../modules/pool.js');
 
 
 router.get('/', (req, res) => {
-    const sqlText = `SELECT * FROM shoppingList ORDER BY "name", "quantity";`;
+    const sqlText = `SELECT * FROM "shoppingList" ORDER BY "name", "quantity";`;
     pool.query(sqlText)
         .then((result) => {
             console.log(`GET request made from database`, result);
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const item = req.body;
-    const sqlText = `INSERT INTO shoppingList ("name", "quantity")
+    const sqlText = `INSERT INTO "shoppingList" ("name", "quantity")
                     VALUES ($1, $2);`;
     pool.query(sqlText, [item.name, item.quantity])
     .then((result) => {
