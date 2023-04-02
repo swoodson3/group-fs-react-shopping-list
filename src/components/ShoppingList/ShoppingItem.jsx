@@ -43,7 +43,14 @@ function ShoppingItem({ item, fetchItemList }) {
     return (
         <Grid item xs={12} md={4}>
             <Card xs={{minWidth: 275}}>
-                {item.name} - {item.quantity}
+                <CardContent>
+                    <Typography variant="h5">
+                        {item.name}
+                    </Typography>
+                    <Typography>
+                        Quantity: {item.quantity}
+                    </Typography>
+                </CardContent>
                 <button onClick={(e) => markItem(e)}>BUY</button>
                 <button onClick={(e) => removeItem(e)}>Delete</button>
             </Card>
